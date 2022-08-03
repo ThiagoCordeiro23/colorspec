@@ -16,3 +16,7 @@
 hello <- function() {
   print("Hello, world!")
 }
+
+usethis::use_package("pavo")
+usethis::use_package("dplyr")
+usethis::use_package("tibble")
