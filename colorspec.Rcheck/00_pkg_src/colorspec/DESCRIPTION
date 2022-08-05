@@ -9,11 +9,8 @@ Description: More about what it does (maybe more than one line)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    pavo,
-    tibble,
-    dplyr,
-    magrittr
+Imports: pavo, tibble, dplyr
 RoxygenNote: 7.2.1
-Depends: 
-    R (>= 2.10)
+Depends: R (>= 2.10)
+NeedsCompilation: no
+Packaged: 2022-08-05 02:45:57 UTC; diogo
