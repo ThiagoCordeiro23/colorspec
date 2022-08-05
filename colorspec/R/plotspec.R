@@ -7,9 +7,9 @@
 #'
 #' @examples
 #' #example 1 ## not run
-#' data(refletancias)
-#' refletancias <- fixspec(refletancias)
-#' plotspec(refletancias)
+#' data(leptodactyla)
+#' refletancias <- fixspec(leptodactyla)
+#' plotspec(leptodactyla)
 #'
 #' @return It is a plot.
 #'

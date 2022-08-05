@@ -6,8 +6,10 @@
 #'
 #'
 #' @examples
-#' data(refletancias)
-#' refletancias <- fixspec(refletancias)
+#' data(leptodactyla)
+#' refletancias <- fixspec(leptodactyla)
+#'
+#'@return fixed spectra
 #'
 #' @export
 fixspec <- function(rspecdata){

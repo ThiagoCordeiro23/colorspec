@@ -19,8 +19,8 @@ Calc and plot the average (central line) and standard deviation (shadow area) of
 }
 \examples{
 #example 1 ## not run
-data(refletancias)
-refletancias <- fixspec(refletancias)
-plotspec(refletancias)
+data(leptodactyla)
+refletancias <- fixspec(leptodactyla)
+plotspec(leptodactyla)
 
 }

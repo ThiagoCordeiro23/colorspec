@@ -9,11 +9,14 @@ fixspec(rspecdata)
 \arguments{
 \item{rspecdata}{A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.}
 }
+\value{
+fixed spectra
+}
 \description{
 This function convert to rspecdata, normalize, fix negative values and applies smoothing. Please, see procspec and as.rspec functions from 'pavo' package
 }
 \examples{
-data(refletancias)
-refletancias <- fixspec(refletancias)
+data(leptodactyla)
+refletancias <- fixspec(leptodactyla)
 
 }
