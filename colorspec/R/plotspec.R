@@ -9,7 +9,7 @@
 #' #example 1 ## not run
 #' data(leptodactyla)
 #' refletancias <- fixspec(leptodactyla)
-#' plotspec(leptodactyla)
+#' plotspec(leptodactyla, ylim = c(0, 80))
 #'
 #' @return It is a plot.
 #'

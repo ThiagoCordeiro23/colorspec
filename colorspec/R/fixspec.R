@@ -1,4 +1,4 @@
-#' fixspec function
+#' Fixing spectra data
 #'
 #' This function convert to rspecdata, normalize, fix negative values and applies smoothing. Please, see procspec and as.rspec functions from 'pavo' package
 #'
