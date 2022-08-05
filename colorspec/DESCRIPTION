@@ -4,8 +4,9 @@ Title: Process, plot and do vismodel
 Version: 1.0.1
 Author: Diogo J. A. Silva
 Maintainer: The package maintainer <diogo.silva.094@ufrn.edu.br>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This package process, plot agregate rspecdata reflectances with a pattern code used in the Sensory Ecology Lab UFRN.
+Adicionaly, the vismodel parameters used by Silva et al. (2022) are compilated to three functions that can easily simulate bluetit, fiddler crab and peafowl visions.
+Which returns a table with Qi and JND together.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
