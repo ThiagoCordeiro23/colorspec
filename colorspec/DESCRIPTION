@@ -1,7 +1,7 @@
 Package: colorspec
 Type: Package
 Title: Process, plot and do vismodel
-Version: 1.0
+Version: 1.0.1
 Author: Diogo J. A. Silva
 Maintainer: The package maintainer <diogo.silva.094@ufrn.edu.br>
 Description: More about what it does (maybe more than one line)
