@@ -2,7 +2,7 @@
 % Please edit documentation in R/fixspec.R
 \name{fixspec}
 \alias{fixspec}
-\title{fixspec function}
+\title{Fixing spectra data}
 \usage{
 fixspec(rspecdata)
 }

@@ -21,6 +21,6 @@ Calc and plot the average (central line) and standard deviation (shadow area) of
 #example 1 ## not run
 data(leptodactyla)
 refletancias <- fixspec(leptodactyla)
-plotspec(leptodactyla)
+plotspec(leptodactyla, ylim = c(0, 80))
 
 }
