@@ -31,7 +31,8 @@ vis.bluetit <- function(rspecdata, background){
   result <- dplyr::select(result, -patch1, -patch2) %>%
     dplyr::rename(chromatic_contrast = dS,
            achromatic_contrast = dL,
-           luminance = lum)
+           luminance = lum) %>%
+    dplyr::mutate(vismodel = "Bluetit")
 
   return(result)
 
