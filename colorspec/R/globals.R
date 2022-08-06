@@ -4,4 +4,6 @@ utils::globalVariables(c("ID",
                          "patch2",
                          "dS",
                          "dL",
-                         "lum"))
+                         "lum",
+                         "lmax430",
+                         "lmax520"))

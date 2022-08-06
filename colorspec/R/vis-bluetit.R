@@ -1,7 +1,7 @@
 #' Bluetit vismodel
 #'
 #' Calculate quantum catch (Qi), chromatic and achromatic contrast, given in
-#' JND units.
+#' JND units. The vismodel parameters is based in Silva et al (2022).
 #' pavo::vismodel Parameters: qcatch = "Qi",visual = "bluetit", achromatic = "bt.dc",illum = "D65",trans = "bluetit", scale = 1, relative = FALSE.
 #' pavo::coldist parameters: qcatch = NULL, noise = "neural", n = c(1,1.9,2.7,2.7), weber.ref ='longest', weber = 0.1
 #' To set the parameters manualy see vismodel() and coldist() functions of 'pavo' package.

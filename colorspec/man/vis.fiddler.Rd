@@ -13,6 +13,7 @@ vis.fiddler(rspecdata, background)
 }
 \description{
 Calculate quantum catch (Qi), chromatic and achromatic contrast, given in JND units.
+The vismodel parameters is based in Silva et al (2022).
 This package uses:
 pavo::vismodel parameters: qcatch = "Qi",visual = c(430,520), achromatic = "l",illum = "D65",trans = "ideal")
 pavo::coldist parameters: qcatch = NULL, noise = "neural", n = c(1, 1), weber.ref= 'longest', weber = 0.12 (Apis melifera)

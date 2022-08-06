@@ -1,6 +1,7 @@
 #' Fiddler crab vismodel
 #'
 #' Calculate quantum catch (Qi), chromatic and achromatic contrast, given in JND units.
+#' The vismodel parameters is based in Silva et al (2022).
 #' This package uses:
 #' pavo::vismodel parameters: qcatch = "Qi",visual = c(430,520), achromatic = "l",illum = "D65",trans = "ideal")
 #' pavo::coldist parameters: qcatch = NULL, noise = "neural", n = c(1, 1), weber.ref= 'longest', weber = 0.12 (Apis melifera)
@@ -32,7 +33,9 @@ vis.fiddler <- function(rspecdata, background){
   result <- dplyr::select(result, -patch1, -patch2) %>%
     dplyr::rename(chromatic_contrast = dS,
                   achromatic_contrast = dL,
-                  luminance = lum)
+                  luminance = lum,
+                  u = lmax430,
+                  m = lmax520)
 
   return(result)
 

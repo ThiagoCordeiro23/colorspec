@@ -12,8 +12,9 @@ vis.peafowl(rspecdata, background)
 \item{background}{choice one column spectrum data to be the background in RNL model.}
 }
 \description{
-Calculate properties of color (saturation, mean brightness and hue), quantum catch (Qi), chromatic and achromatic contrast, given in JND units. The iluminant is D65. If you want to set the parameters, see vismodel and coldist functions of 'pavo' package.
-The vismodel parameters of this function are based in Silva et al. (2022).
+Calculate quantum catch (Qi), chromatic and achromatic contrast, given in
+JND units. The vismodel parameters of this function are based in Silva et al. (2022).
+Parameters: pavo::vismodel(rspecdata, qcatch ="Qi",visual = "pfowl", achromatic = "ch.dc", illum = "D65", trans = transmit, vonkries = FALSE, scale = 1, relative = FALSE)
 }
 \examples{
 #example ## not run
