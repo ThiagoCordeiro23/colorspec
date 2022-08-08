@@ -1,4 +1,6 @@
-# colorspec R package
+# colorspec
 
-This package process, plot agregate rspecdata reflectances with a pattern code used in the Sensory Ecology Lab UFRN. Adicionaly, the vismodel parameters used by Silva et al. (2022) are compilated to three functions that can easily simulate bluetit, fiddler crab and peafowl visions. Which returns a table with Qi and JND together.
+It process, plot aggregate rspecdata reflectances with a pattern code used in the Sensory Ecology Lab UFRN. Additionally, the vismodel parameters used by Silva et al. (2022) were compiled to three functions. These functions can easily simulate bluetit, fiddler crab and peafowl visions, and gives a table with Qi and JND together as results.
+
+All these functions is based on 'pavo' package.
  
