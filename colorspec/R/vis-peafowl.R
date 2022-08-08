@@ -3,6 +3,7 @@
 #' Calculate quantum catch (Qi), chromatic and achromatic contrast, given in
 #' JND units. The vismodel parameters of this function are based in Silva et al. (2022).
 #' Parameters: pavo::vismodel(rspecdata, qcatch ="Qi",visual = "pfowl", achromatic = "ch.dc", illum = "D65", trans = transmit, vonkries = FALSE, scale = 1, relative = FALSE)
+#' pavo::coldist(noise = "neural", achro = TRUE, n = c(1,1.9,2.2,2.1), weber.ref = 'longest', weber = 0.1, weber.achro = TRUE)
 #'
 #' @param rspecdata A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.
 #' @param background choice one column spectrum data to be the background in RNL model.

@@ -15,6 +15,7 @@ vis.peafowl(rspecdata, background)
 Calculate quantum catch (Qi), chromatic and achromatic contrast, given in
 JND units. The vismodel parameters of this function are based in Silva et al. (2022).
 Parameters: pavo::vismodel(rspecdata, qcatch ="Qi",visual = "pfowl", achromatic = "ch.dc", illum = "D65", trans = transmit, vonkries = FALSE, scale = 1, relative = FALSE)
+pavo::coldist(noise = "neural", achro = TRUE, n = c(1,1.9,2.2,2.1), weber.ref = 'longest', weber = 0.1, weber.achro = TRUE)
 }
 \examples{
 #example ## not run
