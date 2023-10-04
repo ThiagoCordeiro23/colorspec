@@ -34,7 +34,7 @@ vis.fiddler <- function(rspecdata, background){
     dplyr::rename(chromatic_contrast = dS,
                   achromatic_contrast = dL,
                   luminance = lum,
-                  u = lmax430,
+                  s = lmax430,
                   m = lmax520) %>%
     dplyr::mutate(vismodel = "Fiddler crab")
 
