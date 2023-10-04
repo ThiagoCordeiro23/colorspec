@@ -2,7 +2,7 @@
 % Please edit documentation in R/vis-human-di.R
 \name{vis.human.di}
 \alias{vis.human.di}
-\title{Fiddler crab vismodel}
+\title{Colorblind human visual modeling}
 \usage{
 vis.human.di(rspecdata, background)
 }
@@ -14,10 +14,10 @@ vis.human.di(rspecdata, background)
 \description{
 Calculate quantum catch (Qi), chromatic and achromatic contrast, given in JND units.
 The visual peaks based in Pessoa et al. (2014) and weber based on Perini et al. (2009)
-Photorreceptors density: s = 1, m = 4, l = 9.2. Ref(?)
+Photoreceptors density: (???)
 This package uses:
-pavo::vismodel parameters: qcatch = "Qi",visual = c(420,565), achromatic = "l",illum = "D65",trans = "ideal")
-pavo::coldist parameters: qcatch = NULL, noise = "neural", n = c(1, 10), weber.ref= 'longest', weber = 0.
+pavo::vismodel(rspecdata, qcatch ="Qi",visual = sens_hum, achromatic = "l", illum = "D65", trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
+pavo::coldist(QI_human, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1,30), weber.ref = 'l', weber = c(0.08, 0.014), weber.achro = TRUE)
 }
 \examples{
 #example ## not run
