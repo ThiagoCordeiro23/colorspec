@@ -2,25 +2,29 @@
 % Please edit documentation in R/vis-human-di.R
 \name{vis.human.di}
 \alias{vis.human.di}
-\title{Colorblind human visual modeling}
+\title{Visual Contrast Analysis Function for Dichromatic Humans (S & L cones)}
 \usage{
 vis.human.di(rspecdata, background)
 }
 \arguments{
-\item{rspecdata}{A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.}
+\item{rspecdata}{A dataset, possibly of rspec class, containing a 'wl' column with wavelength range information and spectral data in the remaining columns.}
 
-\item{background}{choice one column spectrum data to be the background in RNL model.}
+\item{background}{Choose one column of spectral data to be used as the background in the RNL model.}
 }
 \description{
-Calculate quantum catch (Qi), chromatic and achromatic contrast, given in JND units.
-The visual peaks based in Pessoa et al. (2014) and weber based on Perini et al. (2009)
-Photoreceptors density: (???)
-This package uses:
-pavo::vismodel(rspecdata, qcatch ="Qi",visual = sens_hum, achromatic = "l", illum = "D65", trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
-pavo::coldist(QI_human, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1,30), weber.ref = 'l', weber = c(0.08, 0.014), weber.achro = TRUE)
+This function calculates the quantum catch (Qi), chromatic contrast (dS), and achromatic
+contrast in Just Noticeable Difference (JND) units for dichromatic humans based
+on spectral reflectance data. The visual model employs settings
+from the 'pavo' package.
+-------------------------------------
+sens_hum <- pavo::sensmodel(c(420, 565), range = c(300, 700))
+sens_hum <- pavo::as.rspec(sens_hum, lim =c(300, 700))
+quantum_catch   <- pavo::vismodel(rspecdata, qcatch ="Qi",visual = sens_hum, achromatic = "l", illum = "D65", trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
+dS  <- pavo::coldist(quantum_catch, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1,19), weber.ref = 'l', weber = c(0.08, 0.014), weber.achro = TRUE)
+-------------------------------------
 }
 \examples{
-#example ## not run
+# Example Usage:
 data(leptodactyla)
-vis.human.di <- vis.human.di(leptodactyla, background = "X00_background")
+vis.human.di(leptodactyla, background = "X00_background")
 }

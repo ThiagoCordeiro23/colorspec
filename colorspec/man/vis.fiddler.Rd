@@ -2,25 +2,24 @@
 % Please edit documentation in R/vis-fiddler.R
 \name{vis.fiddler}
 \alias{vis.fiddler}
-\title{Fiddler crab vismodel}
+\title{Visual Contrast Analysis Function for Fiddler Crabs}
 \usage{
 vis.fiddler(rspecdata, background)
 }
 \arguments{
-\item{rspecdata}{A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.}
+\item{rspecdata}{A dataset, possibly of rspec class, containing a 'wl' column with wavelength range information and spectral data in the remaining columns.}
 
-\item{background}{choice one column spectrum data to be the background in RNL model.}
+\item{background}{Choose one column of spectral data to be used as the background in the RNL model.}
 }
 \description{
-Calculate quantum catch (Qi), chromatic and achromatic contrast, given in JND units.
-The vismodel parameters is based in Silva et al (2022).
-This package uses:
-pavo::vismodel parameters: qcatch = "Qi",visual = c(430,520), achromatic = "l",illum = "D65",trans = "ideal")
-pavo::coldist parameters: qcatch = NULL, noise = "neural", n = c(1, 1), weber.ref= 'longest', weber = 0.12 (Apis melifera)
+This function calculates the quantum catch (Qi), chromatic contrast, and
+achromatic contrast in Just Noticeable Difference (JND) units for fiddler crabs
+vision. The visual model parameters are adapted from Silva et al. (2022) and
+utilize settings from the 'pavo' package.
 }
 \examples{
-#example ## not run
+Example Usage:
 data(leptodactyla)
-vis.fiddler <- vis.fiddler(leptodactyla, background = "X00_background")
+vis.fiddler(leptodactyla, background = "X00_background")
 
 }
