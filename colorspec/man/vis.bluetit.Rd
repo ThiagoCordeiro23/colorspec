@@ -4,12 +4,14 @@
 \alias{vis.bluetit}
 \title{Bluetit vismodel}
 \usage{
-vis.bluetit(rspecdata, background)
+vis.bluetit(rspecdata, background, illum)
 }
 \arguments{
 \item{rspecdata}{A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.}
 
 \item{background}{choice one column spectrum data to be the background in RNL model.}
+
+\item{illum}{you can chose the followings illuminantes: "D65", "bluesky", and "forestshade".}
 }
 \description{
 Calculate quantum catch (Qi), chromatic and achromatic contrast, given in
@@ -22,6 +24,6 @@ To set the parameters manualy see vismodel() and coldist() functions of 'pavo' p
 #example ## not run
 data(leptodactyla)
 leptodactyla <- fixspec(leptodactyla)
-vis.bt <- vis.bluetit(leptodactyla, background = "X00_background")
+vis.bt <- vis.bluetit(leptodactyla, background = "X00_background", illum = "D65")
 
 }
