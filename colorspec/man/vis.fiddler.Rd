@@ -4,12 +4,14 @@
 \alias{vis.fiddler}
 \title{Visual Contrast Analysis Function for Fiddler Crabs}
 \usage{
-vis.fiddler(rspecdata, background)
+vis.fiddler(rspecdata, background, illum)
 }
 \arguments{
 \item{rspecdata}{A dataset, possibly of rspec class, containing a 'wl' column with wavelength range information and spectral data in the remaining columns.}
 
 \item{background}{Choose one column of spectral data to be used as the background in the RNL model.}
+
+\item{illum}{you can chose the followings illuminantes: "D65", "bluesky", and "forestshade".}
 }
 \description{
 This function calculates the quantum catch (Qi), chromatic contrast, and
@@ -20,6 +22,6 @@ utilize settings from the 'pavo' package.
 \examples{
 Example Usage:
 data(leptodactyla)
-vis.fiddler(leptodactyla, background = "X00_background")
+vis.fiddler(leptodactyla, background = "X00_background", illum = "D65")
 
 }

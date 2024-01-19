@@ -7,20 +7,21 @@
 #'
 #' @param rspecdata A dataset, possibly of rspec class, containing a 'wl' column with wavelength range information and spectral data in the remaining columns.
 #' @param background Choose one column of spectral data to be used as the background in the RNL model.
+#' @param illum you can chose the followings illuminantes: "D65", "bluesky", and "forestshade".
 #'
 #' @examples
 #' Example Usage:
 #' data(leptodactyla)
-#' vis.fiddler(leptodactyla, background = "X00_background")
+#' vis.fiddler(leptodactyla, background = "X00_background", illum = "D65")
 #'
 #' @export
-vis.fiddler <- function(rspecdata, background){
+vis.fiddler <- function(rspecdata, background, illum){
 
   #vismodel
   sens_uca <- pavo::sensmodel(c(430, 520), range = c(300, 700))
   sens_uca <- pavo::as.rspec(sens_uca, lim =c(300, 700))
 
-  QI_uca   <- pavo::vismodel(rspecdata, qcatch = "Qi",visual = sens_uca, achromatic = "l",illum = "D65",trans = "ideal", scale = 1, relative = FALSE)
+  QI_uca   <- pavo::vismodel(rspecdata, qcatch = "Qi",visual = sens_uca, achromatic = "l",illum = illum,trans = "ideal", scale = 1, relative = FALSE)
   JND_uca  <- pavo::coldist(QI_uca, qcatch = NULL, noise = "neural", subset = background, achro=TRUE, n = c(1, 1), weber.ref='longest', weber = 0.12, weber.achro = TRUE)
 
   QI_uca <- QI_uca %>%

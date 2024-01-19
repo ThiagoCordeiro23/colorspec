@@ -4,12 +4,14 @@
 \alias{vis.peafowl}
 \title{Peafowl vismodel}
 \usage{
-vis.peafowl(rspecdata, background)
+vis.peafowl(rspecdata, background, illum)
 }
 \arguments{
 \item{rspecdata}{A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.}
 
 \item{background}{choice one column spectrum data to be the background in RNL model.}
+
+\item{illum}{you can chose the followings illuminantes: "D65", "bluesky", and "forestshade".}
 }
 \description{
 Calculate quantum catch (Qi), chromatic and achromatic contrast, given in
@@ -21,6 +23,6 @@ pavo::coldist(noise = "neural", achro = TRUE, n = c(1,1.9,2.2,2.1), weber.ref = 
 #example ## not run
 data(leptodactyla)
 leptodactyla <- fixspec(leptodactyla)
-vis.peafowl <- vis.peafowl(leptodactyla, background = "X00_background")
+vis.peafowl <- vis.peafowl(leptodactyla, background = "X00_background", illum = "D65")
 
 }
