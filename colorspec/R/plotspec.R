@@ -14,12 +14,13 @@
 #' @return It is a plot.
 #'
 #' @export
-plotspec <- function(rspecdata,...){
+plotspec <- function(rspecdata, legend, ...){
 
   bysic <- gsub("[0-9]*", "", names(rspecdata)[-1])
   plot  <- pavo::aggplot(rspecdata,
                          bysic,
                          alpha  = 0.3,
-                         legend = T,...)
+                         legend = legend,
+                         ...)
   return(plot)
 }

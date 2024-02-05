@@ -4,7 +4,7 @@
 \alias{plotspec}
 \title{plot average spectra}
 \usage{
-plotspec(rspecdata, ...)
+plotspec(rspecdata, legend, ...)
 }
 \arguments{
 \item{rspecdata}{A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.}
