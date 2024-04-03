@@ -2,6 +2,7 @@
 
 export("%>%")
 export(fixspec)
+export(gethex)
 export(plotspec)
 export(vis.bluetit)
 export(vis.fiddler)
