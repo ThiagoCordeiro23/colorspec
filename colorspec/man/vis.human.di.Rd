@@ -2,29 +2,32 @@
 % Please edit documentation in R/vis-human-di.R
 \name{vis.human.di}
 \alias{vis.human.di}
-\title{Visual Contrast Analysis Function for Dichromatic Humans (S & L cones)}
+\title{Calculate chromatic and achromatic contrasts for dichromatic human vision}
 \usage{
-vis.human.di(rspecdata, background)
+vis.human.di(rspecdata, background, illum)
 }
 \arguments{
-\item{rspecdata}{A dataset, possibly of rspec class, containing a 'wl' column with wavelength range information and spectral data in the remaining columns.}
+\item{rspecdata}{A dataframe containing reflectance spectra data. Each row represents a spectrum, and each column represents a wavelength with corresponding reflectance values.}
 
-\item{background}{Choose one column of spectral data to be used as the background in the RNL model.}
+\item{background}{A character string specifying the ID of the background spectrum used for calculations.}
+
+\item{illum}{A character string specifying the illuminant used for calculations.}
+}
+\value{
+A dataframe containing calculated chromatic and achromatic contrasts along with other relevant information.
 }
 \description{
-This function calculates the quantum catch (Qi), chromatic contrast (dS), and achromatic
-contrast in Just Noticeable Difference (JND) units for dichromatic humans based
-on spectral reflectance data. The visual model employs settings
-from the 'pavo' package.
--------------------------------------
-sens_hum <- pavo::sensmodel(c(420, 565), range = c(300, 700))
-sens_hum <- pavo::as.rspec(sens_hum, lim =c(300, 700))
-quantum_catch   <- pavo::vismodel(rspecdata, qcatch ="Qi",visual = sens_hum, achromatic = "l", illum = "D65", trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
-dS  <- pavo::coldist(quantum_catch, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1,19), weber.ref = 'l', weber = c(0.08, 0.014), weber.achro = TRUE)
--------------------------------------
+This function calculates chromatic and achromatic contrasts for dichromatic human vision based on reflectance spectra data.
 }
 \examples{
-# Example Usage:
-data(leptodactyla)
-vis.human.di(leptodactyla, background = "X00_background")
+library(pavo)
+# Generate example data
+rspecdata <- data.frame(Wavelength = seq(300, 700, by = 10), Spectra = runif(41))
+background <- "background_spectrum"
+illum <- "D65"
+# Calculate chromatic and achromatic contrasts
+vis.human.di(rspecdata, background, illum)
+}
+\seealso{
+\code{\link[pavo:sensmodel]{sensmodel}}, \code{\link[pavo:vismodel]{vismodel}}, \code{\link[pavo:coldist]{coldist}}
 }

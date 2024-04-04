@@ -36,7 +36,9 @@ vis.fiddler <- function(rspecdata, background, illum){
                   luminance = lum,
                   s = lmax430,
                   m = lmax520) %>%
-    dplyr::mutate(vismodel = "Fiddler crab")
+    dplyr::mutate(vismodel = "Fiddler crab") %>%
+    dplyr::mutate(iluminante = illum) %>%
+    dplyr::mutate(substrato = background)
 
   return(result)
 
