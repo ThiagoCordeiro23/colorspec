@@ -35,7 +35,9 @@ vis.peafowl <- function(rspecdata, background, illum){
     dplyr::rename(chromatic_contrast = dS,
            achromatic_contrast = dL,
            luminance = lum) %>%
-    dplyr::mutate(vismodel = "Peafowl")
+    dplyr::mutate(vismodel = "Peafowl") %>%
+    dplyr::mutate(iluminante = illum) %>%
+    dplyr::mutate(substrato = background)
 
   return(result)
 
