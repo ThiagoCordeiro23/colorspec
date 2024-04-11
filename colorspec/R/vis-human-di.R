@@ -19,11 +19,11 @@
 vis.human.di <- function(rspecdata, background, illum) {
 
   # Dichromatic sensibility
-  sens_hum <- pavo::sensmodel(c(420, 565), range = c(300, 700)) # Visual peaks = (Pessoa et al., 2014)
-  sens_hum <- pavo::as.rspec(sens_hum, lim = c(300, 700))
+  sens <- pavo::sensmodel(c(420, 565), range = c(300, 700)) # Visual peaks = (Pessoa et al., 2014)
+  sens <- pavo::as.rspec(sens_hum, lim = c(300, 700))
 
   # Vismodel
-  QI   <- pavo::vismodel(rspecdata, qcatch = "Qi", visual = sens_hum, achromatic = "l", illum = illum, trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
+  QI   <- pavo::vismodel(rspecdata, qcatch = "Qi", visual = sens, achromatic = "l", illum = illum, trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
   JND  <- pavo::coldist(QI, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1, 19), weber.ref = 'l', weber = c(0.08, 0.014), weber.achro = TRUE) # 'weber' from (Perini et al., 2009); 'n' from Roorda & Williams (1999)
 
   JND2 <- JND %>%

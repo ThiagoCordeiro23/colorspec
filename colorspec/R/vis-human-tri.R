@@ -24,7 +24,7 @@ vis.human.tri <- function(rspecdata, background, illum) {
   sens <- pavo::as.rspec(sens_hum, lim = c(300, 700))
 
   # Vismodel
-  QI   <- pavo::vismodel(rspecdata, qcatch = "Qi", visual = sens_hum, achromatic = "ml", illum = illum, trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
+  QI   <- pavo::vismodel(rspecdata, qcatch = "Qi", visual = sens, achromatic = "ml", illum = illum, trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
   JND  <- pavo::coldist(QI, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1, 6, 13), weber.ref = 'l', weber = c(0.08, 0.02, 0.02), weber.achro = TRUE) # weber = (Perini et al., 2009); photoreceptors proportions (Roorda & Williams, 1999)
 
   JND2 <- JND %>%
