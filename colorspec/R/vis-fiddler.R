@@ -19,7 +19,7 @@ vis.fiddler <- function(rspecdata, background, illum = c("D65", "bluesky", "fore
 
   #vismodel
   sens <- pavo::sensmodel(c(430, 520), range = c(300, 700))
-  sens <- pavo::as.rspec(sens_uca, lim =c(300, 700))
+  sens <- pavo::as.rspec(sens, lim =c(300, 700))
 
   QI   <- pavo::vismodel(rspecdata, qcatch = "Qi",visual = sens, achromatic = "l",illum = illum,trans = "ideal", scale = 1, relative = FALSE)
   JND  <- pavo::coldist(QI, qcatch = NULL, noise = "neural", subset = background, achro=TRUE, n = c(1, 1), weber.ref='longest', weber = 0.12, weber.achro = TRUE)

@@ -6,7 +6,6 @@
 #' @param background A character string specifying the ID of the background spectrum used for calculations.
 #' @param illum A character string specifying the illuminant used for calculations.
 #' @return A dataframe containing calculated chromatic and achromatic contrasts along with other relevant information.
-#' @export
 #' @examples
 #' library(pavo)
 #' # Generate example data
@@ -16,12 +15,13 @@
 #' # Calculate chromatic and achromatic contrasts
 #' vis.human.di(rspecdata, background, illum)
 #' @seealso \code{\link[pavo:sensmodel]{sensmodel}}, \code{\link[pavo:vismodel]{vismodel}}, \code{\link[pavo:coldist]{coldist}}
+#'
 #' @export
 vis.human.di <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade")) {
 
   # Dichromatic sensibility
   sens <- pavo::sensmodel(c(420, 565), range = c(300, 700)) # Visual peaks = (Pessoa et al., 2014)
-  sens <- pavo::as.rspec(sens_hum, lim = c(300, 700))
+  sens <- pavo::as.rspec(sens, lim = c(300, 700))
 
   # Vismodel
   QI   <- pavo::vismodel(rspecdata, qcatch = "Qi", visual = sens, achromatic = "l", illum = illum, trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
