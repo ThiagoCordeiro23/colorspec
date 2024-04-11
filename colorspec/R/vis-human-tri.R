@@ -17,7 +17,7 @@
 #' vis.human.tri(rspecdata, background, illum)
 #'
 #' @seealso \code{\link[pavo:sensmodel]{sensmodel}}, \code{\link[pavo:vismodel]{vismodel}}, \code{\link[pavo:coldist]{coldist}}
-vis.human.tri <- function(rspecdata, background, illum) {
+vis.human.tri <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade") {
 
   # Trichromatic sensibility
   sens <- pavo::sensmodel(c(420, 530, 565), range = c(300, 700)) # Visual peaks = (Pessoa et al., 2014)

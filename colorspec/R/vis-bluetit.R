@@ -17,7 +17,7 @@
 #' vis.bt <- vis.bluetit(leptodactyla, background = "X00_background", illum = "D65")
 #'
 #' @export
-vis.bluetit <- function(rspecdata, background, illum){
+vis.bluetit <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade"){
 
   #vismodel
   QI   <- pavo::vismodel(rspecdata, qcatch = "Qi",visual = "bluetit", achromatic = "bt.dc",illum = illum,trans = "bluetit", scale = 1, relative = FALSE)
