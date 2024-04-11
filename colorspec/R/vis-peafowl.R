@@ -16,25 +16,28 @@
 #' vis.peafowl <- vis.peafowl(leptodactyla, background = "X00_background", illum = "D65")
 #'
 #' @export
-vis.peafowl <- function(rspecdata, background, illum){
+vis.peafowl <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade")){
 
   #vismodel
   #Import transmittance from Hart
   transmit  <- pavo::as.rspec(transmit,lim=c(300,700))
 
-  QI_pav   <- pavo::vismodel(rspecdata, qcatch ="Qi",visual = "pfowl", achromatic = "ch.dc", illum = illum, trans = transmit, vonkries = FALSE, scale = 1, relative = FALSE)
-  JND_pav  <- pavo::coldist(QI_pav, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1,1.9,2.2,2.1), weber.ref = 'longest', weber = 0.1, weber.achro = TRUE)
+  QI   <- pavo::vismodel(rspecdata, qcatch ="Qi",visual = "pfowl", achromatic = "ch.dc", illum = illum, trans = transmit, vonkries = FALSE, scale = 1, relative = FALSE)
+  JND  <- pavo::coldist(QI, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1,1.9,2.2,2.1), weber.ref = 'longest', weber = 0.1, weber.achro = TRUE)
 
-  QI_pav <- QI_pav %>%
+  JND2 <- JND %>%
+    dplyr::mutate(patch2 = ifelse(patch2 == background, patch1, patch2)) %>%
+    dplyr::rename(ID = patch2)%>%
+    dplyr::select(-patch1)
+
+  QI2 <- QI %>%
     tibble::rownames_to_column(var = "ID") %>%
-     dplyr::filter(ID != background)
+    dplyr::filter(ID != background)
 
-  result <- dplyr::bind_cols(QI_pav, JND_pav)
-
-  result <- dplyr::select(result, -patch1, -patch2) %>%
+  result <- dplyr::left_join(QI2, JND2, by = "ID") %>%
     dplyr::rename(chromatic_contrast = dS,
-           achromatic_contrast = dL,
-           luminance = lum) %>%
+                  achromatic_contrast = dL,
+                  luminance = lum) %>%
     dplyr::mutate(vismodel = "Peafowl") %>%
     dplyr::mutate(iluminante = illum) %>%
     dplyr::mutate(substrato = background)

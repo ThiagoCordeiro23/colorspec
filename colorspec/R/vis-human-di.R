@@ -23,22 +23,23 @@ vis.human.di <- function(rspecdata, background, illum) {
   sens_hum <- pavo::as.rspec(sens_hum, lim = c(300, 700))
 
   # Vismodel
-  QI_human   <- pavo::vismodel(rspecdata, qcatch = "Qi", visual = sens_hum, achromatic = "l", illum = illum, trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
-  JND_human  <- pavo::coldist(QI_human, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1, 19), weber.ref = 'l', weber = c(0.08, 0.014), weber.achro = TRUE) # 'weber' from (Perini et al., 2009); 'n' from Roorda & Williams (1999)
+  QI   <- pavo::vismodel(rspecdata, qcatch = "Qi", visual = sens_hum, achromatic = "l", illum = illum, trans = "ideal", vonkries = FALSE, scale = 1, relative = FALSE)
+  JND  <- pavo::coldist(QI, qcatch = NULL, noise = "neural", subset = background, achro = TRUE, n = c(1, 19), weber.ref = 'l', weber = c(0.08, 0.014), weber.achro = TRUE) # 'weber' from (Perini et al., 2009); 'n' from Roorda & Williams (1999)
 
-  QI_human <- QI_human %>%
+  JND2 <- JND %>%
+    dplyr::mutate(patch2 = ifelse(patch2 == background, patch1, patch2)) %>%
+    dplyr::rename(ID = patch2)%>%
+    dplyr::select(-patch1)
+
+  QI2 <- QI %>%
     tibble::rownames_to_column(var = "ID") %>%
     dplyr::filter(ID != background)
 
-  result <- dplyr::bind_cols(QI_human, JND_human)
-
-  result <- dplyr::select(result, -patch1, -patch2) %>%
+  result <- dplyr::left_join(QI2, JND2, by = "ID") %>%
     dplyr::rename(chromatic_contrast = dS,
                   achromatic_contrast = dL,
-                  luminance = lum,
-                  s = lmax420,
-                  l = lmax565) %>%
-    dplyr::mutate(vismodel = "Colorblind Human") %>%
+                  luminance = lum) %>%
+    dplyr::mutate(vismodel = "Dichromatic Human") %>%
     dplyr::mutate(iluminante = illum) %>%
     dplyr::mutate(substrato = background)
 
