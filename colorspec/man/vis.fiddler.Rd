@@ -4,7 +4,7 @@
 \alias{vis.fiddler}
 \title{Visual Contrast Analysis Function for Fiddler Crabs}
 \usage{
-vis.fiddler(rspecdata, background, illum)
+vis.fiddler(rspecdata, background, illum = c("D65", "bluesky", "forestshade"))
 }
 \arguments{
 \item{rspecdata}{A dataset, possibly of rspec class, containing a 'wl' column with wavelength range information and spectral data in the remaining columns.}

@@ -4,7 +4,7 @@
 \alias{vis.bluetit}
 \title{Bluetit vismodel}
 \usage{
-vis.bluetit(rspecdata, background, illum)
+vis.bluetit(rspecdata, background, illum = c("D65", "bluesky", "forestshade"))
 }
 \arguments{
 \item{rspecdata}{A data frame, possibly of class rspec, which contains a column containing a wavelength range, named 'wl', and spectra data in remaining columns.}

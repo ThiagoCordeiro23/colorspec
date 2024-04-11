@@ -16,7 +16,7 @@
 #' # Calculate chromatic and achromatic contrasts
 #' vis.human.di(rspecdata, background, illum)
 #' @seealso \code{\link[pavo:sensmodel]{sensmodel}}, \code{\link[pavo:vismodel]{vismodel}}, \code{\link[pavo:coldist]{coldist}}
-vis.human.di <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade") {
+vis.human.di <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade")) {
 
   # Dichromatic sensibility
   sens <- pavo::sensmodel(c(420, 565), range = c(300, 700)) # Visual peaks = (Pessoa et al., 2014)

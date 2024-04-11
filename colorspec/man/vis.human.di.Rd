@@ -4,7 +4,7 @@
 \alias{vis.human.di}
 \title{Calculate chromatic and achromatic contrasts for dichromatic human vision}
 \usage{
-vis.human.di(rspecdata, background, illum)
+vis.human.di(rspecdata, background, illum = c("D65", "bluesky", "forestshade"))
 }
 \arguments{
 \item{rspecdata}{A dataframe containing reflectance spectra data. Each row represents a spectrum, and each column represents a wavelength with corresponding reflectance values.}

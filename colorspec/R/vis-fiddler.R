@@ -15,7 +15,7 @@
 #' vis.fiddler(leptodactyla, background = "X00_background", illum = "D65")
 #'
 #' @export
-vis.fiddler <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade"){
+vis.fiddler <- function(rspecdata, background, illum = c("D65", "bluesky", "forestshade")){
 
   #vismodel
   sens <- pavo::sensmodel(c(430, 520), range = c(300, 700))
